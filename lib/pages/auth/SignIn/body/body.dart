@@ -1,3 +1,4 @@
+import 'package:HackathonCCR/pages/auth/SignIn/body/form.dart';
 import 'package:HackathonCCR/util/animations/fadeSlide.dart';
 import 'package:HackathonCCR/util/constants.dart';
 import 'package:flutter/material.dart';
@@ -51,6 +52,9 @@ class _BodySignInState extends State<BodySignIn>
 
   @override
   Widget build(BuildContext context) {
+    var height =
+        MediaQuery.of(context).size.height - MediaQuery.of(context).padding.top;
+    var space = height > 650 ? kSpaceM : kSpaceS;
     return SafeArea(
       child: SizedBox(
         width: double.infinity,
@@ -64,11 +68,15 @@ class _BodySignInState extends State<BodySignIn>
               Column(
                 children: [
                   SizedBox(
-                    height: ScreenUtil().setHeight(100),
+                    height: ScreenUtil().setHeight(120),
                     width: double.infinity,
                     child: Stack(
                       children: [
-                        Positioned(left: 0, child: FlutterLogo()),
+                        Positioned(
+                            left: 0,
+                            child: FlutterLogo(
+                              size: 80,
+                            )),
                         Center(
                           child: FadeSlideTransition(
                               animation: _headerTextAnimation,
@@ -86,7 +94,7 @@ class _BodySignInState extends State<BodySignIn>
                   ),
                   FadeSlideTransition(
                       animation: _headerTextAnimation,
-                      additionalOffset: 16.0,
+                      additionalOffset: 0.0,
                       child: Text(
                         "Entre com seu E-mail e Senha \nou continue com uma rede social.",
                         textAlign: TextAlign.center,
@@ -96,9 +104,14 @@ class _BodySignInState extends State<BodySignIn>
               SizedBox(
                 height: ScreenUtil().setHeight(100),
               ),
+              SignForm(
+                  animation: _formElementAnimation,
+                  height: height,
+                  space: space),
               SizedBox(
                 height: ScreenUtil().setHeight(40),
               ),
+
               // FadeSlideTransition(
               //   animation: _formElementAnimation,
               //   additionalOffset: 400,
@@ -111,6 +124,7 @@ class _BodySignInState extends State<BodySignIn>
               //   phraseText: "Ainda Não Possui Conta? ",
               //   specialWord: "Cadastre-se",
               // )),
+
               SizedBox(
                 height: ScreenUtil().setHeight(20),
               ),
@@ -130,6 +144,7 @@ class _BodySignInState extends State<BodySignIn>
               SizedBox(
                 height: ScreenUtil().setHeight(10),
               ),
+
               FadeSlideTransition(
                   animation: _formElementAnimation,
                   additionalOffset: 600,
@@ -137,16 +152,19 @@ class _BodySignInState extends State<BodySignIn>
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [],
                   )),
-              Expanded(
+
+              FadeSlideTransition(
+                  animation: _formElementAnimation,
+                  additionalOffset: 600,
                   child: Align(
-                child: Column(
-                  children: [
-                    Text("Made by Equipe 27"),
-                    Text("Hackathon CCR"),
-                  ],
-                ),
-                alignment: Alignment.center,
-              )),
+                    child: Column(
+                      children: [
+                        Text("Made by Equipe 27"),
+                        Text("Hackathon CCR"),
+                      ],
+                    ),
+                    alignment: Alignment.center,
+                  )),
             ],
           ),
         ),

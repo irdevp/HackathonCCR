@@ -3,13 +3,12 @@ import 'package:flutter/material.dart';
 import 'constants.dart';
 
 ThemeData themeData() {
-  var kPrimaryColor;
   return ThemeData(
       appBarTheme: appBarTheme(),
       primaryColor: kPrimaryColor,
       visualDensity: VisualDensity.adaptivePlatformDensity,
       scaffoldBackgroundColor: kBackgroundColor,
-      fontFamily: 'Montserrat',
+      fontFamily: 'Poppins',
       inputDecorationTheme: inputDecorationTheme(),
       textTheme: textTheme());
 }
@@ -51,5 +50,5 @@ AppBarTheme appBarTheme() {
       ),
       textTheme: TextTheme(
           headline6: TextStyle(
-              color: Color(0xFF8B8B8B), fontSize: 18, fontFamily: 'Roboto')));
+              color: Color(0xFF8B8B8B), fontSize: 18, fontFamily: 'Poppins')));
 }

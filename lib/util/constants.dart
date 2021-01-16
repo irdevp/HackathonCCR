@@ -13,3 +13,26 @@ const headerTitleLogin = TextStyle(
     color: fontHeaderNameColor,
     height: 1.0,
     letterSpacing: 1);
+final RegExp emailValidatorRegExp =
+    RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+final RegExp passwordValidatorRegExp =
+    RegExp(r"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$");
+final RegExp cepRegExp = RegExp(r"^[0-9]{5}-[\d]{3}");
+
+const String kNameNullError = "Por Favor Digite Seu Nome";
+const String kEmailNullError = "Por Favor Digite Seu Email";
+const String kInvalidEmailError = "Por Favor Digite um Email Válido";
+const String kPassNullError = "Por Favor Digite Sua Senha";
+const String kInvalidPassError = "Por Favor Digite uma senha válida";
+const String kMatchPassError = "As senha não coincidem";
+const String kTooltipMensage = '• No Mínimo 8 Caracteres\n'
+    '• Pelo menos um Número\n• Pelo menos uma Letra';
+const String kShortPassError = "Senha contem menos de 8 Caracteres";
+
+const Color kError = Color(0xFFD8000C);
+OutlineInputBorder outlineInputBorderError = OutlineInputBorder(
+    borderRadius: BorderRadius.circular(8),
+    borderSide: BorderSide(color: kError),
+    gapPadding: 10);
+const double kSpaceS = 8.0;
+const double kSpaceM = 16.0;

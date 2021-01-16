@@ -1,0 +1,3 @@
+class ErrorText {
+  String error;
+}

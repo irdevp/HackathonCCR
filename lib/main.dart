@@ -1,7 +1,9 @@
 import 'dart:async';
 
+import 'package:HackathonCCR/pages/app/baseScreen.dart';
 import 'package:HackathonCCR/pages/auth/SignIn/signIn.dart';
 import 'package:HackathonCCR/util/constants.dart';
+import 'package:HackathonCCR/util/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_screenutil/screenutil.dart';
@@ -19,10 +21,8 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-            visualDensity: VisualDensity.adaptivePlatformDensity,
-          ),
+          theme: themeData(),
+          //home: Main(),
           home: Main(),
         ));
   }
