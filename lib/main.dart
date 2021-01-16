@@ -1,4 +1,10 @@
+import 'dart:async';
+
+import 'package:HackathonCCR/pages/auth/SignIn/signIn.dart';
+import 'package:HackathonCCR/util/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_screenutil/screenutil.dart';
 
 void main() {
   runApp(MyApp());
@@ -7,59 +13,127 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
+    return ScreenUtilInit(
+        designSize: Size(750, 1334),
+        allowFontScaling: false,
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Demo',
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+            visualDensity: VisualDensity.adaptivePlatformDensity,
+          ),
+          home: Main(),
+        ));
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
+class Main extends StatefulWidget {
+  static const DELAY_TO_NEXT_SCREEN = Duration(milliseconds: 4000);
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _MainState createState() => _MainState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+class _MainState extends State<Main> with TickerProviderStateMixin {
+  AnimationController slideAnimation;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  AnimationController fadeAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    fadeAnimation =
+        AnimationController(duration: Duration(milliseconds: 450), vsync: this);
+
+    slideAnimation =
+        AnimationController(duration: Duration(milliseconds: 900), vsync: this)
+          ..addStatusListener((status) {
+            if (status == AnimationStatus.completed) {
+              slideAnimation.reverse();
+              Timer(Duration(milliseconds: 150), fadeAnimation.forward);
+            }
+          });
+    Timer(Duration(milliseconds: 700), slideAnimation.forward);
+  }
+
+  @override
+  void dispose() {
+    fadeAnimation.dispose();
+    slideAnimation.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    Timer(
+        Main.DELAY_TO_NEXT_SCREEN,
+        () => Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (BuildContext context) => SignIn())));
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
+      backgroundColor: kPrimaryColor,
+      body: Stack(
+        fit: StackFit.expand,
+        children: <Widget>[
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Expanded(
+                flex: 5,
+                child: Container(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      SlideTransition(
+                        position: Tween(
+                                begin: Offset(0.0, 0.0), end: Offset(0.0, 0.3))
+                            .animate(CurvedAnimation(
+                                parent: slideAnimation,
+                                curve: Curves.easeInBack)),
+                        child: CircleAvatar(
+                          backgroundColor: Colors.transparent,
+                          radius: ScreenUtil().setHeight(130),
+                        ),
+                      ),
+                      SizedBox(height: ScreenUtil().setHeight(20)),
+                      FadeTransition(
+                        opacity: Tween<double>(begin: 0, end: 1).animate(
+                            CurvedAnimation(
+                                parent: fadeAnimation, curve: Curves.bounceIn)),
+                        child: Material(
+                          type: MaterialType.transparency,
+                          child: FittedBox(
+                            child: Wrap(
+                                crossAxisAlignment: WrapCrossAlignment.start,
+                                direction: Axis.vertical,
+                                spacing: 0,
+                                children: <Widget>[
+                                  Padding(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: ScreenUtil().setWidth(12)),
+                                    child: Text(
+                                      "Bom nome",
+                                      style: headerTitleLogin.copyWith(
+                                        fontSize: ScreenUtil().setSp(25),
+                                        letterSpacing: 1.3,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ),
+                                  Text("Slogan",
+                                      style: headerTitleLogin.copyWith(
+                                          color: Colors.black))
+                                ]),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
