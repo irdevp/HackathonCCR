@@ -7,7 +7,7 @@ ThemeData themeData() {
       appBarTheme: appBarTheme(),
       primaryColor: kPrimaryColor,
       visualDensity: VisualDensity.adaptivePlatformDensity,
-      scaffoldBackgroundColor: kBackgroundColor,
+      scaffoldBackgroundColor: kBackgroundColorDark,
       fontFamily: 'Poppins',
       inputDecorationTheme: inputDecorationTheme(),
       textTheme: textTheme());
@@ -42,13 +42,17 @@ TextTheme textTheme() {
 
 AppBarTheme appBarTheme() {
   return AppBarTheme(
-      color: kBackgroundColor,
+      color: kBackgroundColorDark,
       elevation: 0,
       brightness: Brightness.light,
+      centerTitle: true,
       iconTheme: IconThemeData(
-        color: Colors.black45,
+        color: kPrimaryColor,
       ),
       textTheme: TextTheme(
           headline6: TextStyle(
-              color: Color(0xFF8B8B8B), fontSize: 18, fontFamily: 'Poppins')));
+              color: Colors.white,
+              fontSize: 18,
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.w600)));
 }

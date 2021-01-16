@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const kPrimaryColor = Color(0xFF7210FF);
+const kPrimaryColor = Color(0xFF26C16E);
 const kBackgroundColor = Color(0xFFFBFBFD);
 const kTextColor = Color(0xFF6F6F71);
 const fontHeaderNameColor = Color(0xffff57a25);
@@ -36,3 +36,7 @@ OutlineInputBorder outlineInputBorderError = OutlineInputBorder(
     gapPadding: 10);
 const double kSpaceS = 8.0;
 const double kSpaceM = 16.0;
+
+const Color kTextDark = Color(0xFF6A6C6F);
+const Color kBackgroundColorDark = Color(0xFF1E1F26);
+const Color kCardColor = Color(0xFF34353F);

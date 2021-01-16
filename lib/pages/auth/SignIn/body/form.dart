@@ -44,7 +44,7 @@ class _SignFormState extends State<SignForm> {
               animation: widget.animation,
               additionalOffset: 0.0,
               child: SizedBox(
-                height: ScreenUtil().setHeight(100),
+                height: ScreenUtil().setHeight(120),
                 child: buildEmailFormField(),
               )),
           SizedBox(
@@ -58,7 +58,7 @@ class _SignFormState extends State<SignForm> {
               animation: widget.animation,
               additionalOffset: widget.space,
               child: SizedBox(
-                  height: ScreenUtil().setHeight(100),
+                  height: ScreenUtil().setHeight(120),
                   child: buildPasswordFormField())),
           PlaceholderFormError(),
           AnimatedOpacity(

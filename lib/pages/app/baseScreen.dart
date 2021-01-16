@@ -1,7 +1,9 @@
 import 'package:HackathonCCR/pages/app/home/home.dart';
+import 'package:HackathonCCR/pages/app/search/search.dart';
+import 'package:HackathonCCR/util/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class BaseScreen extends StatefulWidget {
   @override
@@ -12,11 +14,9 @@ class _BaseScreenState extends State<BaseScreen>
     with SingleTickerProviderStateMixin {
   int _selectedIndex = 0;
   static List<Widget> _widgetOptions = <Widget>[
-    Home(),
+    HomeScreen(),
     Container(),
-    Container(
-      color: Colors.amber,
-    ),
+    Search(),
     Container()
   ];
 
@@ -37,10 +37,10 @@ class _BaseScreenState extends State<BaseScreen>
             padding: EdgeInsets.all(ScreenUtil().setWidth(0)),
             child: Align(
               alignment: Alignment.bottomCenter,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: SizedBox(height: 70, child: bottomNavigationBar()),
-              ),
+              child: Container(
+                  decoration: BoxDecoration(color: Color(0xFF34353F)),
+                  height: 70,
+                  child: bottomNavigationBar()),
             ),
           )
           //
@@ -65,32 +65,49 @@ class _BaseScreenState extends State<BaseScreen>
       backgroundColor: Colors.transparent,
       elevation: 0,
       type: BottomNavigationBarType.fixed,
-      showUnselectedLabels: false,
-      showSelectedLabels: false,
+      showUnselectedLabels: true,
+      showSelectedLabels: true,
       onTap: _onItemTapped,
       currentIndex: _selectedIndex,
-      unselectedItemColor: Color(0xFFF434A50),
+      unselectedItemColor: Color(0xFF90A4AE),
+      selectedItemColor: kPrimaryColor,
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
-            icon: Icon(
-              MdiIcons.home,
+            icon: SvgPicture.asset(
+              'assets/images/Category.svg',
             ),
-            label: 'BaseScreen'),
+            activeIcon: SvgPicture.asset(
+              'assets/images/Category.svg',
+              color: kPrimaryColor,
+            ),
+            label: 'Cursos'),
         BottomNavigationBarItem(
-          icon: Icon(
-            MdiIcons.home,
+          icon: SvgPicture.asset(
+            'assets/images/Location.svg',
           ),
-          label: 'Localidade',
+          activeIcon: SvgPicture.asset(
+            'assets/images/Location.svg',
+            color: kPrimaryColor,
+          ),
+          label: 'Seus Locais',
         ),
         BottomNavigationBarItem(
-          icon: Icon(
-            MdiIcons.home,
+          icon: SvgPicture.asset(
+            'assets/images/Search.svg',
           ),
-          label: 'Perfil',
+          activeIcon: SvgPicture.asset(
+            'assets/images/Search.svg',
+            color: kPrimaryColor,
+          ),
+          label: 'Buscar',
         ),
         BottomNavigationBarItem(
-          icon: Icon(
-            MdiIcons.home,
+          icon: SvgPicture.asset(
+            'assets/images/Profile.svg',
+          ),
+          activeIcon: SvgPicture.asset(
+            'assets/images/Profile.svg',
+            color: kPrimaryColor,
           ),
           label: 'Perfil',
         ),

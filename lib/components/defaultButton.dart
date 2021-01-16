@@ -12,7 +12,7 @@ class DefaultButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: ScreenUtil().setHeight(100),
+      height: ScreenUtil().setHeight(120),
       child: FlatButton(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           color: bgColor != null ? bgColor : kPrimaryColor,
