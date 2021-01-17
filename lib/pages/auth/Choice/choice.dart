@@ -9,14 +9,14 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 
 class Choice extends StatefulWidget {
   @override
-  _ChoiceState createState() => _ChoiceState();
+  ChoiceState createState() => ChoiceState();
 }
 
-class _ChoiceState extends State<Choice> with SingleTickerProviderStateMixin {
+class ChoiceState extends State<Choice> with SingleTickerProviderStateMixin {
   AnimationController _animationController;
   Animation<double> _headerTextAnimation;
   Animation<double> _formElementAnimation;
-  static int _typeAccount;
+  static String typeAccount = "student";
   @override
   void initState() {
     super.initState();
@@ -77,17 +77,17 @@ class _ChoiceState extends State<Choice> with SingleTickerProviderStateMixin {
                         animation: _headerTextAnimation,
                         additionalOffset: 50.0,
                         child: buildCard(
-                            "Sou Aluno", "assets/images/Aluno.svg", 0)),
+                            "Sou Aluno", "assets/images/Aluno.svg", "student")),
                     FadeSlideTransition(
                         animation: _headerTextAnimation,
                         additionalOffset: 90.0,
-                        child: buildCard(
-                            "Sou Professor", "assets/images/Professor.svg", 1)),
+                        child: buildCard("Sou Professor",
+                            "assets/images/Professor.svg", "teacher")),
                     FadeSlideTransition(
                         animation: _headerTextAnimation,
                         additionalOffset: 120.0,
-                        child: buildCard(
-                            "Sou uma empresa", "assets/images/Empresa.svg", 2)),
+                        child: buildCard("Sou uma empresa",
+                            "assets/images/Empresa.svg", "business")),
                   ],
                 ),
               ))
@@ -96,7 +96,7 @@ class _ChoiceState extends State<Choice> with SingleTickerProviderStateMixin {
     );
   }
 
-  Padding buildCard(String title, String pathIcon, int typeAc) {
+  Padding buildCard(String title, String pathIcon, String typeAc) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
       child: RaisedButton(
@@ -128,7 +128,7 @@ class _ChoiceState extends State<Choice> with SingleTickerProviderStateMixin {
         onPressed: () => {
           Navigator.of(context).push(
               MaterialPageRoute(builder: (BuildContext context) => SignIn())),
-          _typeAccount = typeAc
+          typeAccount = typeAc
         },
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0),

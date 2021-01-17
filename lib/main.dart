@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:HackathonCCR/pages/app/baseScreen.dart';
+import 'package:HackathonCCR/pages/app/student/baseScreen.dart';
 import 'package:HackathonCCR/pages/auth/Choice/choice.dart';
 import 'package:HackathonCCR/pages/auth/SignIn/signIn.dart';
 import 'package:HackathonCCR/util/constants.dart';
@@ -23,8 +23,8 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'EmpregAí',
           theme: themeData(),
+          //home: SignIn(),
           home: BaseScreen(),
-          //home: Choice(),
         ));
   }
 }

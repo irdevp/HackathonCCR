@@ -95,20 +95,6 @@ class _BodySignInState extends State<BodySignIn>
               SizedBox(
                 height: ScreenUtil().setHeight(40),
               ),
-
-              // FadeSlideTransition(
-              //   animation: _formElementAnimation,
-              //   additionalOffset: 400,
-              // ),
-              // child: PromoAccountText(
-              //   pressAction: () => Navigator.push(
-              //     context,
-              //     MaterialPageRoute(builder: (context) => Container()),
-              //   ),
-              //   phraseText: "Ainda Não Possui Conta? ",
-              //   specialWord: "Cadastre-se",
-              // )),
-
               SizedBox(
                 height: ScreenUtil().setHeight(20),
               ),
@@ -128,7 +114,6 @@ class _BodySignInState extends State<BodySignIn>
               SizedBox(
                 height: ScreenUtil().setHeight(10),
               ),
-
               FadeSlideTransition(
                   animation: _formElementAnimation,
                   additionalOffset: 600,
@@ -136,7 +121,6 @@ class _BodySignInState extends State<BodySignIn>
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [],
                   )),
-
               FadeSlideTransition(
                   animation: _formElementAnimation,
                   additionalOffset: 600,

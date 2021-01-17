@@ -2,9 +2,12 @@ import 'package:HackathonCCR/components/defaultButton.dart';
 import 'package:HackathonCCR/components/formError/error.dart';
 import 'package:HackathonCCR/components/formError/formErrorCentral.dart';
 import 'package:HackathonCCR/components/formError/placeholder.dart';
-import 'package:HackathonCCR/pages/app/baseScreen.dart';
+import 'package:HackathonCCR/pages/app/student/baseScreen.dart';
+import 'package:HackathonCCR/pages/auth/Choice/choice.dart';
+import 'package:HackathonCCR/pages/auth/serviceauth.dart';
 import 'package:HackathonCCR/util/animations/fadeSlide.dart';
 import 'package:HackathonCCR/util/constants.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/screenutil.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -29,6 +32,7 @@ class _SignFormState extends State<SignForm> {
   final ErrorText loginError = ErrorText();
   bool canPress = true;
   bool hasValueEmail = true;
+  var dio = Dio();
   //ValuesField
 
   final TextEditingController _emailController = TextEditingController();
@@ -112,14 +116,32 @@ class _SignFormState extends State<SignForm> {
                         if (_formKeySignIn.currentState.validate()) {
                           FocusScope.of(context).requestFocus(FocusNode());
                           var result;
+                          Response response;
                           if (passwordValidatorRegExp
                               .hasMatch(_passwordController.text.trim())) {
-                            result = "200";
+                            try {
+                              response = await dio.post(
+                                  "https://hackathon-ccr-2.herokuapp.com/login",
+                                  data: {
+                                    "email": "igordev@gmail.com",
+                                    "password": "12345678Igg",
+                                    "type": "student"
+                                  });
+                              if (response.statusCode == 201) {
+                                result = "200";
+                              }
+                            } catch (e) {
+                              if (response.statusCode == 401) {
+                                result = "user-not-found";
+                              } else {
+                                result = "Indisponivel";
+                              }
+                            }
                           } else {
                             result = 'wrong-password';
                             _passwordController.text = "";
                           }
-                          if (result == "200") {
+                          if (result == '200') {
                             Navigator.of(context).pushReplacement(
                                 MaterialPageRoute(
                                     builder: (BuildContext context) =>

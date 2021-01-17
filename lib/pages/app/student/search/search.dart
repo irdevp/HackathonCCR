@@ -2,7 +2,7 @@ import 'package:HackathonCCR/components/defaultButton.dart';
 import 'package:HackathonCCR/components/formError/error.dart';
 import 'package:HackathonCCR/components/formError/formErrorCentral.dart';
 import 'package:HackathonCCR/components/formError/placeholder.dart';
-import 'package:HackathonCCR/pages/app/baseScreen.dart';
+import 'package:HackathonCCR/pages/app/student/baseScreen.dart';
 import 'package:HackathonCCR/util/animations/fadeSlide.dart';
 import 'package:HackathonCCR/util/constants.dart';
 import 'package:flutter/material.dart';

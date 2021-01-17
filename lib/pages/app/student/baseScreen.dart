@@ -1,6 +1,5 @@
-import 'package:HackathonCCR/pages/app/home/home.dart';
-import 'package:HackathonCCR/pages/app/search/search.dart';
-import 'package:HackathonCCR/pages/app/search/search2.dart';
+import 'package:HackathonCCR/pages/app/student/home/home.dart';
+import 'package:HackathonCCR/pages/app/student/search/search2.dart';
 import 'package:HackathonCCR/util/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

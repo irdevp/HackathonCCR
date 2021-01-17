@@ -1,6 +1,6 @@
 import 'package:HackathonCCR/components/buttonCard.dart';
 import 'package:HackathonCCR/components/horizontalCard.dart';
-import 'package:HackathonCCR/pages/app/home/sub_pages/detailhe_curso/detalheCurso.dart';
+import 'package:HackathonCCR/pages/app/student/home/sub_pages/detailhe_curso/detalheCurso.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
