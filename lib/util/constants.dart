@@ -31,7 +31,7 @@ const String kShortPassError = "Senha contem menos de 8 Caracteres";
 
 const Color kError = Color(0xFFD8000C);
 OutlineInputBorder outlineInputBorderError = OutlineInputBorder(
-    borderRadius: BorderRadius.circular(8),
+    borderRadius: BorderRadius.circular(20),
     borderSide: BorderSide(color: kError),
     gapPadding: 10);
 const double kSpaceS = 8.0;

@@ -27,7 +27,7 @@ class ButtonCard extends StatelessWidget {
                 color: Colors.white, fontWeight: FontWeight.w800, fontSize: 15),
           ),
           SizedBox(
-            height: 5,
+            height: 3,
           ),
           Text(
             professor,
@@ -36,7 +36,7 @@ class ButtonCard extends StatelessWidget {
                 color: Colors.white, fontWeight: FontWeight.w400, fontSize: 13),
           ),
           SizedBox(
-            height: 5,
+            height: 3,
           ),
           Text(
             cargaHoraria,

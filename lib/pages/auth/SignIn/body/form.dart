@@ -28,6 +28,7 @@ class _SignFormState extends State<SignForm> {
   final ErrorText passwordError = ErrorText();
   final ErrorText loginError = ErrorText();
   bool canPress = true;
+  bool hasValueEmail = true;
   //ValuesField
 
   final TextEditingController _emailController = TextEditingController();
@@ -100,7 +101,7 @@ class _SignFormState extends State<SignForm> {
               animation: widget.animation,
               additionalOffset: 3 * widget.space,
               child: DefaultButton(
-                text: "Continue",
+                text: "Entrar",
                 press: _validForm.contains(false)
                     ? null
                     : () async {
@@ -188,12 +189,13 @@ class _SignFormState extends State<SignForm> {
           return null;
         },
         decoration: InputDecoration(
-            labelText: "Email",
             hintText: "Digite seu email",
-            hintStyle: TextStyle(fontSize: ScreenUtil().setSp(30)),
+            hintStyle: TextStyle(
+                fontSize: ScreenUtil().setSp(30), color: Color(0xFFCACACA)),
             enabledBorder:
                 emailError.error != null ? outlineInputBorderError : null,
             floatingLabelBehavior: FloatingLabelBehavior.always,
+            fillColor: _emailController.text.isNotEmpty ? Colors.white : null,
             suffixIcon: Icon(
               MdiIcons.email,
               color: emailError.error != null ? kError : null,
@@ -233,12 +235,14 @@ class _SignFormState extends State<SignForm> {
           return null;
         },
         decoration: InputDecoration(
-            labelText: "Senha",
-            hintStyle: TextStyle(fontSize: ScreenUtil().setSp(30)),
+            hintStyle: TextStyle(
+                fontSize: ScreenUtil().setSp(30), color: Color(0xFFCACACA)),
             hintText: "Digite sua senha",
             enabledBorder:
                 passwordError.error != null ? outlineInputBorderError : null,
             floatingLabelBehavior: FloatingLabelBehavior.always,
+            fillColor:
+                _passwordController.text.isNotEmpty ? Colors.white : null,
             suffixIcon: Icon(
               MdiIcons.lock,
               color: passwordError.error != null ? kError : null,

@@ -3,6 +3,7 @@ import 'package:HackathonCCR/util/animations/fadeSlide.dart';
 import 'package:HackathonCCR/util/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class BodySignIn extends StatefulWidget {
   @override
@@ -72,33 +73,16 @@ class _BodySignInState extends State<BodySignIn>
                     width: double.infinity,
                     child: Stack(
                       children: [
-                        Positioned(
-                            left: 0,
-                            child: FlutterLogo(
-                              size: 80,
-                            )),
-                        Center(
-                          child: FadeSlideTransition(
-                              animation: _headerTextAnimation,
-                              additionalOffset: 0.0,
-                              child: Text(
-                                "Login",
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: ScreenUtil().setSp(40),
-                                    fontWeight: FontWeight.w600),
-                              )),
-                        ),
+                        // Positioned(
+                        //     left: 0,
+                        //     child: SvgPicture.asset("assets/images/Logo.svg")),
                       ],
                     ),
                   ),
                   FadeSlideTransition(
                       animation: _headerTextAnimation,
                       additionalOffset: 0.0,
-                      child: Text(
-                        "Entre com seu E-mail e Senha \nou continue com uma rede social.",
-                        textAlign: TextAlign.center,
-                      )),
+                      child: SvgPicture.asset("assets/images/Logo.svg")),
                 ],
               ),
               SizedBox(

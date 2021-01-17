@@ -1,5 +1,6 @@
 import 'package:HackathonCCR/pages/app/home/home.dart';
 import 'package:HackathonCCR/pages/app/search/search.dart';
+import 'package:HackathonCCR/pages/app/search/search2.dart';
 import 'package:HackathonCCR/util/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,7 +17,7 @@ class _BaseScreenState extends State<BaseScreen>
   static List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
     Container(),
-    Search(),
+    Search2(),
     Container()
   ];
 
@@ -29,6 +30,7 @@ class _BaseScreenState extends State<BaseScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
           child: Stack(
         children: <Widget>[

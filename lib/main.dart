@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:HackathonCCR/pages/app/baseScreen.dart';
+import 'package:HackathonCCR/pages/auth/Choice/choice.dart';
 import 'package:HackathonCCR/pages/auth/SignIn/signIn.dart';
 import 'package:HackathonCCR/util/constants.dart';
 import 'package:HackathonCCR/util/theme.dart';
@@ -20,10 +21,10 @@ class MyApp extends StatelessWidget {
         allowFontScaling: false,
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'Flutter Demo',
+          title: 'EmpregAí',
           theme: themeData(),
-          //home: Main(),
           home: BaseScreen(),
+          //home: Choice(),
         ));
   }
 }
@@ -69,7 +70,7 @@ class _MainState extends State<Main> with TickerProviderStateMixin {
     Timer(
         Main.DELAY_TO_NEXT_SCREEN,
         () => Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (BuildContext context) => SignIn())));
+            MaterialPageRoute(builder: (BuildContext context) => Choice())));
     return Scaffold(
       backgroundColor: kPrimaryColor,
       body: Stack(

@@ -2,6 +2,7 @@ import 'package:HackathonCCR/components/buttonCard.dart';
 import 'package:HackathonCCR/components/horizontalCard.dart';
 import 'package:HackathonCCR/pages/app/home/sub_pages/detailhe_curso/detalheCurso.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -18,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
               child: Text(
                 "Olá,\nEduardo.",
                 textAlign: TextAlign.start,
@@ -32,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 children: [
                   SizedBox(
-                    height: 10,
+                    height: 5,
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -56,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             parent: AlwaysScrollableScrollPhysics()),
                         scrollDirection: Axis.horizontal,
                         child: Container(
-                          height: 175,
+                          height: ScreenUtil().setHeight(310),
                           child: Row(
                             children: [
                               SizedBox(
@@ -98,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                   SizedBox(
-                    height: 30,
+                    height: 20,
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -117,30 +118,25 @@ class _HomeScreenState extends State<HomeScreen> {
                       SizedBox(
                         height: 5,
                       ),
-                      Column(
-                        children: [
-                          SingleChildScrollView(
-                              physics: const BouncingScrollPhysics(
-                                  parent: AlwaysScrollableScrollPhysics()),
-                              child: Column(
-                                children: [
-                                  ButtonCard(
-                                    color: Color(0xFFED1563),
-                                    cargaHoraria: "20 horas",
-                                    professor: "Ministrado por João Gomes",
-                                    titulo: "UI Design na prática",
-                                  ),
-                                  ButtonCard(
-                                    color: Color(0xFF2635CE),
-                                    cargaHoraria: "16 horas",
-                                    professor: "Ministrado por Andressa Alves",
-                                    titulo:
-                                        "Encontre os melhores profissionais",
-                                  )
-                                ],
-                              )),
-                        ],
-                      ),
+                      SingleChildScrollView(
+                          physics: const BouncingScrollPhysics(
+                              parent: AlwaysScrollableScrollPhysics()),
+                          child: Column(
+                            children: [
+                              ButtonCard(
+                                color: Color(0xFFED1563),
+                                cargaHoraria: "20 horas",
+                                professor: "Ministrado por João Gomes",
+                                titulo: "UI Design na prática",
+                              ),
+                              ButtonCard(
+                                color: Color(0xFF2635CE),
+                                cargaHoraria: "16 horas",
+                                professor: "Ministrado por Andressa Alves",
+                                titulo: "Encontre os melhores profissionais",
+                              )
+                            ],
+                          )),
                     ],
                   ),
                 ],

@@ -15,22 +15,28 @@ ThemeData themeData() {
 
 InputDecorationTheme inputDecorationTheme() {
   OutlineInputBorder outlineInputBorder = OutlineInputBorder(
-      borderRadius: BorderRadius.circular(8),
-      borderSide: BorderSide(color: kTextColor),
+      borderRadius: BorderRadius.circular(20),
+      borderSide: BorderSide(color: Color(0xFF35363F), width: 0),
       gapPadding: 10);
 
   OutlineInputBorder outlineInputBorderFocus = OutlineInputBorder(
-      borderRadius: BorderRadius.circular(8),
-      borderSide: BorderSide(color: kPrimaryColor),
+      borderRadius: BorderRadius.circular(20),
+      borderSide: BorderSide(
+        color: Color(0xFF35363F),
+      ),
       gapPadding: 10);
   return InputDecorationTheme(
-      hintStyle: TextStyle(color: Colors.grey),
+      hintStyle: TextStyle(color: Colors.white),
       floatingLabelBehavior: FloatingLabelBehavior.always,
       contentPadding: EdgeInsets.symmetric(horizontal: 25, vertical: 20),
       enabledBorder: outlineInputBorder,
       focusedBorder: outlineInputBorderFocus,
+      focusColor: Colors.white,
+      hoverColor: Colors.white,
       suffixStyle: TextStyle(decorationColor: Colors.green),
       isDense: true,
+      filled: true,
+      fillColor: Color(0xFF35363F),
       labelStyle: TextStyle(color: kTextColor));
 }
 
