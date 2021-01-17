@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:HackathonCCR/pages/app/business/home/homeBusiness.dart';
+import './search/searchBusiness.dart';
 
 class BaseScreenBusiness extends StatefulWidget {
   @override
@@ -15,7 +16,7 @@ class _BaseScreenBusinessState extends State<BaseScreenBusiness>
   int _selectedIndex = 0;
   static List<Widget> _widgetOptions = <Widget>[
     HomeScreenBusiness(),
-    Container(),
+    SearchBusiness(),
     Container()
   ];
 

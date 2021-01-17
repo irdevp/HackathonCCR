@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
           title: 'EmpregAí',
           theme: themeData(),
           //home: SignIn(),
-          home: Main(),
+          home: BaseScreenBusiness(),
         ));
   }
 }
