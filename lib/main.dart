@@ -1,13 +1,11 @@
 import 'dart:async';
 
-import 'package:HackathonCCR/pages/app/student/baseScreen.dart';
 import 'package:HackathonCCR/pages/auth/Choice/choice.dart';
-import 'package:HackathonCCR/pages/auth/SignIn/signIn.dart';
 import 'package:HackathonCCR/util/constants.dart';
 import 'package:HackathonCCR/util/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_screenutil/screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 void main() {
   runApp(MyApp());
@@ -24,7 +22,7 @@ class MyApp extends StatelessWidget {
           title: 'EmpregAí',
           theme: themeData(),
           //home: SignIn(),
-          home: BaseScreen(),
+          home: Main(),
         ));
   }
 }
@@ -72,7 +70,7 @@ class _MainState extends State<Main> with TickerProviderStateMixin {
         () => Navigator.of(context).pushReplacement(
             MaterialPageRoute(builder: (BuildContext context) => Choice())));
     return Scaffold(
-      backgroundColor: kPrimaryColor,
+      backgroundColor: kBackgroundColorDark,
       body: Stack(
         fit: StackFit.expand,
         children: <Widget>[
@@ -86,48 +84,15 @@ class _MainState extends State<Main> with TickerProviderStateMixin {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       SlideTransition(
-                        position: Tween(
-                                begin: Offset(0.0, 0.0), end: Offset(0.0, 0.3))
-                            .animate(CurvedAnimation(
-                                parent: slideAnimation,
-                                curve: Curves.easeInBack)),
-                        child: CircleAvatar(
-                          backgroundColor: Colors.transparent,
-                          radius: ScreenUtil().setHeight(130),
-                        ),
-                      ),
-                      SizedBox(height: ScreenUtil().setHeight(20)),
-                      FadeTransition(
-                        opacity: Tween<double>(begin: 0, end: 1).animate(
-                            CurvedAnimation(
-                                parent: fadeAnimation, curve: Curves.bounceIn)),
-                        child: Material(
-                          type: MaterialType.transparency,
-                          child: FittedBox(
-                            child: Wrap(
-                                crossAxisAlignment: WrapCrossAlignment.start,
-                                direction: Axis.vertical,
-                                spacing: 0,
-                                children: <Widget>[
-                                  Padding(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: ScreenUtil().setWidth(12)),
-                                    child: Text(
-                                      "Bom nome",
-                                      style: headerTitleLogin.copyWith(
-                                        fontSize: ScreenUtil().setSp(25),
-                                        letterSpacing: 1.3,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ),
-                                  Text("Slogan",
-                                      style: headerTitleLogin.copyWith(
-                                          color: Colors.black))
-                                ]),
-                          ),
-                        ),
-                      )
+                          position: Tween(
+                                  begin: Offset(0.0, 0.0),
+                                  end: Offset(0.0, 0.3))
+                              .animate(CurvedAnimation(
+                                  parent: slideAnimation,
+                                  curve: Curves.easeInBack)),
+                          child: Container(
+                              child:
+                                  SvgPicture.asset("assets/images/Logo.svg")))
                     ],
                   ),
                 ),

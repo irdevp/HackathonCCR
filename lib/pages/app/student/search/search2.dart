@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:HackathonCCR/components/buttonCard.dart';
+import 'package:HackathonCCR/util/constants.dart';
+import 'package:animate_do/animate_do.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -17,21 +19,24 @@ class _Search2State extends State<Search2> {
   Response response;
   Dio dio = new Dio();
   Timer _debounce;
+  bool loading = false;
+  _onSearchChanged(String item) async {
+    setState(() {
+      loading = true;
+    });
 
-  _onSearchChanged(String item) {
     if (_debounce?.isActive ?? false) _debounce.cancel();
     _debounce = Timer(const Duration(milliseconds: 500), () {
       setState(() {});
       if (_debounce?.isActive ?? false) _debounce.cancel();
-      _debounce = Timer(const Duration(milliseconds: 250), () {
+      _debounce = Timer(const Duration(milliseconds: 100), () {
         setState(() async {
           response = await dio.get(
               "https://hackathon-ccr-2.herokuapp.com/courses/search/" + item);
-          print(response.data);
-          print("https://hackathon-ccr-2.herokuapp.com/courses/search/");
           setState(() {
             queryList = response.data[0];
             queryCount = response.data[1];
+            loading = false;
           });
         });
       });
@@ -77,19 +82,31 @@ class _Search2State extends State<Search2> {
                 )),
           ),
           Expanded(
-              flex: 5,
-              child: _fieldSearch2.text.isEmpty
-                  ? buildSnips()
-                  : ListView.builder(
-                      itemCount: queryCount,
-                      itemBuilder: (context, index) {
-                        return ButtonCard(
-                          color: Colors.red,
-                          titulo: queryList[index]['title'].toString(),
-                          professor: "Professor",
-                          cargaHoraria: "20 Horas",
-                        );
-                      }))
+            flex: 5,
+            child: _fieldSearch2.text.isEmpty
+                ? buildSnips()
+                : !loading
+                    ? ListView.builder(
+                        itemCount: queryCount,
+                        itemBuilder: (context, index) {
+                          return BounceInUp(
+                            child: ButtonCard(
+                              color: Colors.red,
+                              titulo: queryList[index]['title'].toString(),
+                              professor: "Professor",
+                              cargaHoraria: "20 Horas",
+                            ),
+                          );
+                        })
+                    : Align(
+                        alignment: Alignment.topCenter,
+                        child: Container(
+                            margin: EdgeInsets.only(top: 20),
+                            child: CircularProgressIndicator(
+                              valueColor:
+                                  AlwaysStoppedAnimation<Color>(kPrimaryColor),
+                            ))),
+          )
         ],
       ),
     );

@@ -29,6 +29,7 @@ dependencies:
   material_design_icons_flutter: ^4.0.5855
   flutter_svg: ^0.19.1
   dio: ^3.0.10
+  animate_do: ^1.7.5
 dev_dependencies:
   flutter_test:
     sdk: flutter
