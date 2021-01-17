@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:HackathonCCR/pages/app/business/baseScreenBusiness.dart';
+import 'package:HackathonCCR/pages/app/teacher/baseScreenTeacher.dart';
 
 void main() {
   runApp(MyApp());
@@ -23,7 +24,10 @@ class MyApp extends StatelessWidget {
           title: 'EmpregAí',
           theme: themeData(),
           //home: SignIn(),
-          home: BaseScreenBusiness(),
+          home: BaseScreenTeacher(
+            email: "irdevp@gmail.com",
+            nome: "Igor Melo",
+          ),
         ));
   }
 }

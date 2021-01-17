@@ -2,10 +2,10 @@ import 'package:HackathonCCR/util/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/screenutil.dart';
 
-class DefaultButton extends StatelessWidget {
-  const DefaultButton({Key key, this.text, this.press, this.bgColor})
+class DefaultButtonBorder extends StatelessWidget {
+  const DefaultButtonBorder({Key key, this.text, this.press, this.borderColor})
       : super(key: key);
-  final Color bgColor;
+  final Color borderColor;
   final String text;
   final Function press;
   @override
@@ -14,8 +14,10 @@ class DefaultButton extends StatelessWidget {
       width: double.infinity,
       height: ScreenUtil().setHeight(105),
       child: FlatButton(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-          color: bgColor != null ? bgColor : kPrimaryColor,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+              side: BorderSide(width: 3, color: borderColor)),
+          color: Colors.transparent,
           disabledColor: kTextColor,
           onPressed: press,
           child: Text(
