@@ -1,24 +1,23 @@
 import 'package:HackathonCCR/pages/app/student/home/home.dart';
-import 'package:HackathonCCR/pages/app/student/search/search2.dart';
 import 'package:HackathonCCR/util/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:HackathonCCR/components/defaultButton.dart';
-import 'package:HackathonCCR/pages/auth/SignIn/signIn.dart';
+import 'package:HackathonCCR/pages/app/business/home/homeBusiness.dart';
 
-class BaseScreen extends StatefulWidget {
-  final String nome;
-  final String email;
-
-  const BaseScreen({Key key, this.nome, this.email}) : super(key: key);
+class BaseScreenBusiness extends StatefulWidget {
   @override
-  _BaseScreenState createState() => _BaseScreenState();
+  _BaseScreenBusinessState createState() => _BaseScreenBusinessState();
 }
 
-class _BaseScreenState extends State<BaseScreen>
+class _BaseScreenBusinessState extends State<BaseScreenBusiness>
     with SingleTickerProviderStateMixin {
   int _selectedIndex = 0;
+  static List<Widget> _widgetOptions = <Widget>[
+    HomeScreenBusiness(),
+    Container(),
+    Container()
+  ];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -33,26 +32,7 @@ class _BaseScreenState extends State<BaseScreen>
       body: SafeArea(
           child: Stack(
         children: <Widget>[
-          [
-            HomeScreen(nome: widget.nome),
-            Container(),
-            Search2(),
-            Scaffold(
-              body: Container(
-                padding: EdgeInsets.all(20),
-                child: Center(
-                  child: DefaultButton(
-                    text: "Logout",
-                    press: () {
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (BuildContext context) => SignIn()));
-                    },
-                    bgColor: kPrimaryColor,
-                  ),
-                ),
-              ),
-            )
-          ].elementAt(_selectedIndex),
+          _widgetOptions.elementAt(_selectedIndex),
           Padding(
             padding: EdgeInsets.all(ScreenUtil().setWidth(0)),
             child: Align(
@@ -101,16 +81,6 @@ class _BaseScreenState extends State<BaseScreen>
               color: kPrimaryColor,
             ),
             label: 'Cursos'),
-        BottomNavigationBarItem(
-          icon: SvgPicture.asset(
-            'assets/images/Location.svg',
-          ),
-          activeIcon: SvgPicture.asset(
-            'assets/images/Location.svg',
-            color: kPrimaryColor,
-          ),
-          label: 'Seus Locais',
-        ),
         BottomNavigationBarItem(
           icon: SvgPicture.asset(
             'assets/images/Search.svg',

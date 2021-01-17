@@ -163,6 +163,7 @@ class _Search2State extends State<Search2> {
           onTap: () {
             setState(() {
               _fieldSearch2.text = text;
+              _onSearchChanged(_fieldSearch2.text);
             });
           },
           child: Container(

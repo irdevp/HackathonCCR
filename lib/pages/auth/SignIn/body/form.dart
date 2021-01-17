@@ -6,6 +6,7 @@ import 'package:HackathonCCR/pages/app/student/baseScreen.dart';
 import 'package:HackathonCCR/pages/auth/Choice/choice.dart';
 import 'package:HackathonCCR/pages/auth/serviceauth.dart';
 import 'package:HackathonCCR/util/animations/fadeSlide.dart';
+import 'package:HackathonCCR/pages/app/business/baseScreenBusiness.dart';
 import 'package:HackathonCCR/util/constants.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,7 @@ class SignForm extends StatefulWidget {
   final double height;
   const SignForm({Key key, this.animation, this.height, this.space})
       : super(key: key);
+
   @override
   _SignFormState createState() => _SignFormState();
 }
@@ -123,29 +125,35 @@ class _SignFormState extends State<SignForm> {
                               response = await dio.post(
                                   "https://hackathon-ccr-2.herokuapp.com/login",
                                   data: {
-                                    "email": "igordev@gmail.com",
-                                    "password": "12345678Igg",
-                                    "type": "student"
+                                    "email": _emailController.text,
+                                    "password": _passwordController.text,
+                                    "type": ChoiceState.typeAccount
                                   });
-                              if (response.statusCode == 201) {
-                                result = "200";
-                              }
+                              result = "200";
+                              print(response.data);
                             } catch (e) {
-                              if (response.statusCode == 401) {
-                                result = "user-not-found";
-                              } else {
-                                result = "Indisponivel";
-                              }
+                              result = "user-not-found";
                             }
                           } else {
                             result = 'wrong-password';
                             _passwordController.text = "";
                           }
                           if (result == '200') {
-                            Navigator.of(context).pushReplacement(
-                                MaterialPageRoute(
-                                    builder: (BuildContext context) =>
-                                        BaseScreen()));
+                            if (ChoiceState.typeAccount == "student") {
+                              Navigator.of(context).pushReplacement(
+                                  MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          BaseScreen(
+                                            email: response.data['email'],
+                                            nome: response.data['name'],
+                                          )));
+                            } else if (ChoiceState.typeAccount == "teacher") {
+                            } else {
+                              Navigator.of(context).pushReplacement(
+                                  MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          BaseScreenBusiness()));
+                            }
                           } else {
                             if (result == 'wrong-password' ||
                                 result == 'user-not-found') {
