@@ -69,12 +69,14 @@ class _HomeScreenState extends State<HomeScreen> {
                               SizedBox(
                                 width: 30,
                               ),
-                              HorizontalCard(
-                                tipo: "Desenvolvimento",
-                                color: Color(0xFFFC871B),
-                                text: "Aprenda Python na Pratica",
-                                cargaHoraria: "20 horas de aula",
-                              ),
+                              widget.nome == "Igor"
+                                  ? HorizontalCard(
+                                      tipo: "Desenvolvimento",
+                                      color: Color(0xFFFC871B),
+                                      text: "Aprenda Python na Pratica",
+                                      cargaHoraria: "20 horas de aula",
+                                    )
+                                  : SizedBox(),
                               HorizontalCard(
                                 tipo: "RH",
                                 color: Color(0xFF2635CE),
