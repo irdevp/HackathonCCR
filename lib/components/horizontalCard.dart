@@ -19,10 +19,10 @@ class HorizontalCard extends StatelessWidget {
         onTap: () {
           Navigator.of(context).push(MaterialPageRoute(
               builder: (BuildContext context) => DetalheCurso(
-                    cargaHoraria: "20 horas de aula",
-                    text: "Aprenda Python na Pratica",
-                    color: Color(0xFFFC871B),
-                    tipo: "Desenvolvimento",
+                    cargaHoraria: cargaHoraria,
+                    text: text,
+                    color: color,
+                    tipo: tipo,
                     disponibilidade: "Remoto",
                     professor: "Ministrado por Marcelino Freitas",
                     description:

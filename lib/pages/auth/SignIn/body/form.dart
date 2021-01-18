@@ -4,11 +4,11 @@ import 'package:HackathonCCR/components/formError/formErrorCentral.dart';
 import 'package:HackathonCCR/components/formError/placeholder.dart';
 import 'package:HackathonCCR/pages/app/student/baseScreen.dart';
 import 'package:HackathonCCR/pages/auth/Choice/choice.dart';
-import 'package:HackathonCCR/pages/auth/serviceauth.dart';
 import 'package:HackathonCCR/util/animations/fadeSlide.dart';
 import 'package:HackathonCCR/pages/app/business/baseScreenBusiness.dart';
 import 'package:HackathonCCR/util/constants.dart';
 import 'package:dio/dio.dart';
+import 'package:HackathonCCR/pages/app/teacher/home/homeTeacher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/screenutil.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -146,8 +146,16 @@ class _SignFormState extends State<SignForm> {
                                           BaseScreen(
                                             email: response.data['email'],
                                             nome: response.data['name'],
+                                            area: response.data['area'],
+                                            pontos: response.data['points'],
                                           )));
                             } else if (ChoiceState.typeAccount == "teacher") {
+                              Navigator.of(context).pushReplacement(
+                                  MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          HomeScreenTeacher(
+                                            nome: response.data['name'],
+                                          )));
                             } else {
                               Navigator.of(context).pushReplacement(
                                   MaterialPageRoute(

@@ -6,8 +6,6 @@ import 'package:HackathonCCR/util/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:HackathonCCR/pages/app/business/baseScreenBusiness.dart';
-import 'package:HackathonCCR/pages/app/teacher/baseScreenTeacher.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,15 +18,11 @@ class MyApp extends StatelessWidget {
         designSize: Size(750, 1334),
         allowFontScaling: false,
         child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'EmpregAí',
-          theme: themeData(),
-          //home: SignIn(),
-          home: BaseScreenTeacher(
-            email: "irdevp@gmail.com",
-            nome: "Igor Melo",
-          ),
-        ));
+            debugShowCheckedModeBanner: false,
+            title: 'EmpregAí',
+            theme: themeData(),
+            //home: SignIn(),
+            home: Main()));
   }
 }
 

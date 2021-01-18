@@ -40,3 +40,18 @@ const double kSpaceM = 16.0;
 const Color kTextDark = Color(0xFF6A6C6F);
 const Color kBackgroundColorDark = Color(0xFF1E1F26);
 const Color kCardColor = Color(0xFF34353F);
+
+const List<Color> kListColor = [
+  Color(0xFF09BC8A),
+  Color(0xFFDB7F67),
+  Color(0xFF004643),
+  Color(0xFF0C1618),
+  Color(0xFFF8333C),
+  Color(0xFF2B9EB3),
+  Color(0xFF2F3E46),
+  Color(0xFF058ED9),
+  Color(0xFFC46BAE),
+  Color(0xFF33CA7F),
+  Color(0xFFED1563),
+  Color(0xFF2635CE)
+];

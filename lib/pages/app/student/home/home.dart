@@ -3,6 +3,8 @@ import 'package:HackathonCCR/components/horizontalCard.dart';
 import 'package:HackathonCCR/pages/app/student/home/sub_pages/detailhe_curso/detalheCurso.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:HackathonCCR/util/constants.dart';
+import 'dart:math';
 
 class HomeScreen extends StatefulWidget {
   final String nome;
@@ -13,6 +15,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  Random random = new Random();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -110,13 +113,15 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: Column(
                             children: [
                               ButtonCard(
-                                color: Color(0xFFED1563),
+                                color: kListColor[
+                                    random.nextInt(kListColor.length)],
                                 cargaHoraria: "20 horas",
                                 professor: "Ministrado por João Gomes",
                                 titulo: "UI Design na prática",
                               ),
                               ButtonCard(
-                                color: Color(0xFF2635CE),
+                                color: kListColor[
+                                    random.nextInt(kListColor.length)],
                                 cargaHoraria: "16 horas",
                                 professor: "Ministrado por Andressa Alves",
                                 titulo: "Encontre os melhores profissionais",

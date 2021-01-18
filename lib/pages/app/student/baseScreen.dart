@@ -1,4 +1,5 @@
 import 'package:HackathonCCR/pages/app/student/home/home.dart';
+import 'package:HackathonCCR/pages/app/student/perfil.dart';
 import 'package:HackathonCCR/pages/app/student/search/search2.dart';
 import 'package:HackathonCCR/util/constants.dart';
 import 'package:flutter/material.dart';
@@ -10,8 +11,11 @@ import 'package:HackathonCCR/pages/auth/SignIn/signIn.dart';
 class BaseScreen extends StatefulWidget {
   final String nome;
   final String email;
+  final String area;
+  final double pontos;
 
-  const BaseScreen({Key key, this.nome, this.email}) : super(key: key);
+  const BaseScreen({Key key, this.nome, this.email, this.area, this.pontos})
+      : super(key: key);
   @override
   _BaseScreenState createState() => _BaseScreenState();
 }
@@ -37,20 +41,11 @@ class _BaseScreenState extends State<BaseScreen>
             HomeScreen(nome: widget.nome),
             Container(),
             Search2(),
-            Scaffold(
-              body: Container(
-                padding: EdgeInsets.all(20),
-                child: Center(
-                  child: DefaultButton(
-                    text: "Logout",
-                    press: () {
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (BuildContext context) => SignIn()));
-                    },
-                    bgColor: kPrimaryColor,
-                  ),
-                ),
-              ),
+            PerfilStudent(
+              area: widget.area,
+              email: widget.email,
+              name: widget.nome,
+              pontos: widget.pontos,
             )
           ].elementAt(_selectedIndex),
           Padding(

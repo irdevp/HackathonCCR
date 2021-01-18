@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:HackathonCCR/components/buttonCard.dart';
 import 'package:HackathonCCR/util/constants.dart';
@@ -13,6 +14,7 @@ class Search2 extends StatefulWidget {
 }
 
 class _Search2State extends State<Search2> {
+  Random random = new Random();
   TextEditingController _fieldSearch2 = TextEditingController();
   List queryList = [];
   int queryCount = 0;
@@ -91,7 +93,8 @@ class _Search2State extends State<Search2> {
                         itemBuilder: (context, index) {
                           return BounceInUp(
                             child: ButtonCard(
-                              color: Colors.red,
+                              color:
+                                  kListColor[random.nextInt(kListColor.length)],
                               titulo: queryList[index]['title'].toString(),
                               professor: "Professor",
                               cargaHoraria: "20 Horas",
