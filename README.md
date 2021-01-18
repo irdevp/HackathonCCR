@@ -1,5 +1,5 @@
 # App EmpregAi
-
+![](screenshots/ezgif-2-a24b6ba5d346.gif)
 ### Resumo
 
 A gente imagina um mundo onde dentro de um _ecossistema_ tecnológico só, existe 
