@@ -1,16 +1,31 @@
-# HackathonCCR
+# App EmpregAi
 
-A new Flutter project.
+### Resumo
 
-## Getting Started
+A gente imagina um mundo onde dentro de um _ecossistema_ tecnológico só, existe 
+desenvolvimento, conexão e oportunidades para _TODOS: __Jovens, __Professores_
+e _empresas. Somos o *EmpregaAí_*, uma plataforma de ensino gameficada que 
+acompanha e reconhece o desenvolvimento de jovens, e direciona para as empresas 
+que buscam talentos. Tudo isso trazendo aos professores de todo Brasil a 
+oportunidade de ter uma renda extra através do _compartilhamento_ de seus cursos!
 
-This project is a starting point for a Flutter application.
+### Backend
 
-A few resources to get you started if this is your first Flutter project:
+- Express
+- Typescript
+- Javascript
+- Typeorm
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+### Banco de dados & Hospedagem 
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- PostgreSQL
+- Heroku
+
+### Equipe
+
+- Monique (Recursos Humanos)
+- Alisson (Engenharia/Desenvolvimento) (Backend)
+- Igor (Engenharia/Desenvolvimento) (Frontend)
+- Rodrigo (Business)
+- Daislan (UX Design)
+- Henrique (Entusiasta em Educação)
